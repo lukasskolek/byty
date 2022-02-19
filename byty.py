@@ -9,7 +9,13 @@ import json
 import os
 from bs4 import BeautifulSoup as bs
 
+
 # print ("done importing")
+# sudo apt-get install libxml2-dev
+# sudo apt-get install libxslt1-dev
+# sudo apt-get install python-dev
+# sudo apt-get install lxml
+
 
 cache = []
 time.sleep(randint(1, 30))
@@ -25,8 +31,8 @@ page = urlopen(url)
 page2 = urlopen(url2)
 soup = bs((page.read()), features="lxml")
 
-vsetky = [x for x in set(filter(lambda x: '4273' in x, [x.get('href') for x in soup.find_all('a')]))]
-new = [x for x in filter(lambda x: x not in cache, vsetky)]
+all = [x for x in set(filter(lambda x: '466' in x, [x.get('href') for x in soup.find_all('a')]))]
+new = [x for x in filter(lambda x: x not in cache, all)]
 cache += new
 byty = 'Tieto su nove: \n'
 for x in new:
